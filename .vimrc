@@ -43,3 +43,10 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 execute pathogen#infect()
 call pathogen#helptags()
+"Theme configs for https://github.com/altercation/vim-colors-solarized
+syntax enable
+set background=dark
+colorscheme solarized
+  set encoding=utf8
+    let g:airline_powerline_fonts = 1
+    
