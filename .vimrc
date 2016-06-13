@@ -26,6 +26,7 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 Plugin 'ascenator/L9', {'name': 'newL9'}
+Plugin 'jpo/vim-railscasts-theme'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -47,9 +48,10 @@ call pathogen#helptags()
 syntax enable
 set background=dark
 colorscheme solarized
-  set encoding=utf8
+set encoding=utf8
     let g:airline_powerline_fonts = 1
- utocmd vimenter * NERDTree 
+ uton 'jpo/vim-railscasts-theme'
+ cmd vimenter * NERDTree 
  autocmd StdinReadPre * let s:std_in=1
  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
  map <C-n> :NERDTreeToggle<CR>
