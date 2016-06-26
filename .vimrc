@@ -187,7 +187,7 @@ let g:user_emmet_leader_key="<C-E>"
 " Load custom Emmet snippets
 " http://docs.emmet.io/customization/snippets/
 
-let g:user_emmet_settings = webapi#json#decode(join(readfile(expand("~/.vim/snippets/emmet.json")), "\n"))
+" let g:user_emmet_settings = webapi#json#decode(join(readfile(expand("~/.vim/snippets/emmet.json")), "\n"))
 
 
 " ----------------------------------------------------------------------
@@ -565,7 +565,12 @@ set statusline+=\ (%P)\        " Percent through file
 "
 " Note: The following needs to remain at the end of this file in
 "       order to allow any of the above settings to be overwritten
-"       by the local ones
+"  for an anonymous guest to provide this generic, better solution
+"for an anonymous guest to provide this geset directory=.,$TEMP
+set directory=.,$TEMP
+
+"  " This is line I used at first. The above line is better than this
+ " set directory=.,d:\tempby the local ones
 
 if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local
