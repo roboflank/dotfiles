@@ -88,7 +88,7 @@ prompt_say_hello() {
 }
 
 BULLETTRAIN_PROMPT_ORDER=(
-say_hello  
+say_hello
 dir
    git
   context
@@ -100,3 +100,24 @@ dir
 # The next line enables shell command completion for gcloud.
 # source '/home/wamburu/Downloads/google-cloud-sdk/completion.zsh.inc'
 # export PATH=$PATH:~/.vimpkg/bin
+
+
+source antigen.zsh
+
+# Load the oh-my-zsh's library.
+ antigen use oh-my-zsh
+#
+# # Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle heroku
+antigen bundle pip
+antigen bundle lein
+antigen bundle command-not-found
+
+ # Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+#Load the theme.
+antigen theme honukai
+#Tell antigen that you're done.
+antigen apply
