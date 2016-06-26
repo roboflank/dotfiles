@@ -50,7 +50,7 @@ ZSH_THEME="honukai"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git, httpie, bower, git-flow, thefuck, npm, node, wd, zsh-autosuggestions, geeknote)
+plugins=(git, httpie, bower, git-flow, thefuck, npm, node, wd, zsh-autosuggestions, geeknote, autojump-zsh)
 
 # User configuration
 
@@ -95,8 +95,8 @@ dir
 )
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/home/wamburu/Downloads/google-cloud-sdk/path.zsh.inc'
+# source '/home/wamburu/Downloads/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables shell command completion for gcloud.
-source '/home/wamburu/Downloads/google-cloud-sdk/completion.zsh.inc'
-export PATH=$PATH:~/.vimpkg/bin
+# source '/home/wamburu/Downloads/google-cloud-sdk/completion.zsh.inc'
+# export PATH=$PATH:~/.vimpkg/bin
