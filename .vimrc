@@ -141,7 +141,6 @@ set winminheight=0             " Allow windows to be squashed
 
     " Let Vundle manage Vundle (this is important!)
     Plugin 'gmarik/Vundle.vim'
-
     Plugin 'altercation/vim-colors-solarized'
     Plugin 'ap/vim-css-color'
     Plugin 'chrisbra/unicode.vim'
@@ -167,7 +166,15 @@ set winminheight=0             " Allow windows to be squashed
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-repeat'
     Plugin 'tpope/vim-surround'
-
+    Plugin 'Quramy/tsuquyomi'
+    Plugin 'mhartington/oceanic-next'
+    Plugin 'ryanoasis/vim-devicons'
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+    Plugin 'Shougo/vimfiler.vim'
+    Plugin 'mhinz/vim-startify'
+    Plugin 'leafgarland/typescript-vim'
+    Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
 filetype on
