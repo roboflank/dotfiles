@@ -119,7 +119,8 @@ set wildmenu                   " Enable enhanced command-line
                                " match highlighted)
 
 set winminheight=0             " Allow windows to be squashed
-
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+set encoding=utf-8
 
 " ----------------------------------------------------------------------
 " | Plugins                                                            |
@@ -189,7 +190,8 @@ filetype on
 
 let g:user_emmet_leader_key="<C-E>"
 
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+let airline_powerline_fonts=1
+"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 " Load custom Emmet snippets
 " http://docs.emmet.io/customization/snippets/
