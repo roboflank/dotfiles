@@ -52,7 +52,7 @@ ZSH_THEME="honukai"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(history-search-multi-word zsh-syntax-highlighting git k httpie autojump-zsh zsh-autosuggestions npm node bower wd git-flow yarn)
+plugins=(history-search-multi-word zsh-syntax-highlighting git k httpie autojump-zsh zsh-autosuggestions npm node bower wd git-flow yarn tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,3 +84,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export NVM_DIR="/home/wamburu/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
