@@ -38,7 +38,7 @@ ZSH_THEME="honukai"
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/wamburu/Documents/android-sdk-linux/tools:/home/wamburu/Documents/android-sdk-linux/platform-tools:/home/wamburu/Documents/android-sdk-linux/tools:/home/wamburu/Documents/android-sdk-linux/platform-tools"
+  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/wamburu/Documents/android-sdk-linux/tools:/home/wamburu/Documents/android-sdk-linux/platform-tools:/home/wamburu/Documents/android-sdk-linux/tools:/home/wamburu/Documents/android-sdk-linux/platform-tools:/usr/local/gcc-arm-none-eabi-6-2017-q1-update/bin"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
