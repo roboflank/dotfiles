@@ -56,7 +56,7 @@ export ANDROID_HOME=/usr/local/share/android-sdk
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-#plugins=(history-search-multi-word zsh-syntax-highlighting git k httpie autojump-zsh zsh-autosuggestions npm node bower wd git-flow yarn tmux)
+#plugins=(history-search-multi-word zsh-syntax-highlighting git k httpie autojump-zsh zsh-autosuggestions npm node bower wd git-flow yarn tmux zsh-wakatime)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -112,11 +112,12 @@ antigen bundle httpie
 antigen bundle tmux
 antigen bundle npm
 antigen bundle node
+antigen bundle osx
 # Third Party
 antigen bundle kennethreitz/autoenv
 
 # Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-completions src
+antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle unixorn/docker-helpers.zshplugin
 antigen bundle wuotr/zsh-plugin-vscode
@@ -297,3 +298,4 @@ if [ -f '/Users/wamburu/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source 
 if [ -f '/Users/wamburu/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/wamburu/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval $(thefuck --alias)
+export PATH=$PATH:/Users/wamburu/.git-semantic-commits:$PATH
