@@ -42,3 +42,13 @@ unset -f source_bash_files
 # date and time of the last login, the message of the day, etc.)
 
 clear
+
+# added by Miniconda3 installer
+export PATH="/Users/wamburu/miniconda3/bin:$PATH"
+[ -f ~/.gnupg/gpg-agent.env ] && source ~/.gnupg/gpg-agent.env
+if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
+  export GPG_AGENT_INFO
+else
+  eval $(gpg-agent --daemon --log-file /tmp/gpg.log --write-env-file ~/.gnupg/gpg-agent.env --pinentry-program /usr/local/bin/pinentry-mac)
+fi
+export GPG_TTY=$(tty)

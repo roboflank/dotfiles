@@ -116,10 +116,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export NVM_DIR="/home/wamburu/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 #export PATH=$PATH:'/home/wamburu/Documents/android-sdk-linux/tools':'/home/wamburu/Documents/android-sdk-linux/platform-tools'
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/wamburu/Downloads/google-cloud-sdk/path.bash.inc' ]; then source '/Users/wamburu/Downloads/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/wamburu/Downloads/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/wamburu/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+exec zsh
 

@@ -2,12 +2,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/Users/wamburu/.oh-my-zsh
+export ZSH=/Users/wamburu/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="honukai"
+#ZSH_THEME="honukai"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -42,7 +42,8 @@ ZSH_THEME="honukai"
 # export ANDROID_HOME=~/androidtools
 #export PATH="~/androidtools/"
 #export ANDROID_HOME=/Users/wamburu/androidtools
-export ANDROID_HOME=/usr/local/share/android-sdk
+export ANDROID_HOME=~/androidtools
+export PATH="/Users/wamburu/miniconda3/bin:$PATH"
 #export PATH=$PATH:$ANDROID_HOME/tools
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -53,7 +54,7 @@ export ANDROID_HOME=/usr/local/share/android-sdk
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Custom plugins may be added to ~e
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(history-search-multi-word zsh-syntax-highlighting git k httpie autojump-zsh zsh-autosuggestions npm node bower wd git-flow yarn tmux zsh-wakatime)
@@ -88,15 +89,49 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
 export NVM_DIR="/Users/wamburu/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 #Antigen  Paths
-source ~/.antigen/antigen.zsh
-#antigen bundle webyneter/docker-aliases.git
+#source ~/.antigen/antigen.zsh
+source /usr/local/share/antigen/antigen.zsh
+# source "${HOME}/.zgen/zgen.zsh"
+# if the init scipt doesn't exist
+# if ! zgen saved; then
 
-# Load the oh-my-zsh's library.
+#   # specify  here
+#   zgen oh-my-zsh
+# zgen oh-my-zsh plugins/git
+# zgen oh-my-zsh plugins/sudo
+# zgen oh-my-zsh plugins/command-not-found
+# zgen oh-my-zsh plugins/history
+# zgen oh-my-zsh plugins/rsync
+# zgen oh-my-zsh plugins/pip
+# zgen oh-my-zsh plugins/lein
+# zgen oh-my-zsh plugins/python
+# zgen oh-my-zsh plugins/httpie
+# zgen oh-my-zsh plugins/tmux
+# zgen oh-my-zsh plugins/npm
+# zgen oh-my-zsh plugins/node
+# zgen oh-my-zsh plugins/osx
+
+# zgen prezto
+# # Custom plugins
+# zgen load zsh-users/zsh-completions
+# zgen load zsh-users/zsh-autosuggestions
+# zgen load supercrabtree/k
+# zgen load zsh-users/zsh-history-substring-search
+# zgen load psprint/history-search-multi-word
+# zgen load zsh-users/zsh-syntax-highlighting
+
+
+
+#   # generate the init script from plugins above
+#   zgen save
+# fi
+# antigen bundle webyneter/docker-aliases.git
+
+#Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
@@ -113,31 +148,31 @@ antigen bundle tmux
 antigen bundle npm
 antigen bundle node
 antigen bundle osx
-# Third Party
+# # Third Party
 antigen bundle kennethreitz/autoenv
 
-# Syntax highlighting bundle.
+# # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle unixorn/docker-helpers.zshplugin
-antigen bundle wuotr/zsh-plugin-vscode
+# antigen bundle unixorn/docker-helpers.zshplugin
+# antigen bundle wuotr/zsh-plugin-vscode
 antigen bundle psprint/history-search-multi-word
 antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle gko/ssh-connect
-antigen bundle tomsquest/nvm-auto-use.zsh
-antigen bundle supercrabtree/k
-antigen bundle felixr/docker-zsh-completion
+# antigen bundle gko/ssh-connect
+# antigen bundle tomsquest/nvm-auto-use.zsh
+# antigen bundle supercrabtree/k
+# antigen bundle felixr/docker-zsh-completion
 antigen bundle zsh-users/zsh-autosuggestions
 
 #theme
 #antigen theme honukiai
 #antigen theme oskarkrawczyk/honukai-iterm-zsh
-antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
+# antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 
 #autoload -U promptinit; promptinit
 #autoload -U promptinit; promptinit
 #optionally define some options
-#PURE_CMD_MAX_EXEC_TIME=10 
+#PURE_CMD_MAX_EXEC_TIME=10
 #prompt pure
 # ORDER
 SPACESHIP_PROMPT_ORDER=(
@@ -160,7 +195,7 @@ SPACESHIP_PROMPT_ORDER=(
 )
 
 # PROMPT
-SPACESHIP_PROMPT_SYMBOL="➜"
+SPACESHIP_CHAR_SYMBOL=" ➜ "
 SPACESHIP_PROMPT_ADD_NEWLINE=true
 SPACESHIP_PROMPT_SEPARATE_LINE=true
 SPACESHIP_PROMPT_PREFIXES_SHOW=true
@@ -299,3 +334,7 @@ if [ -f '/Users/wamburu/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then s
 
 eval $(thefuck --alias)
 export PATH=$PATH:/Users/wamburu/.git-semantic-commits:$PATH
+
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt spaceship
