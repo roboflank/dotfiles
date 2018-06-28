@@ -44,6 +44,7 @@ export ZSH=/Users/wamburu/.oh-my-zsh
 #export ANDROID_HOME=/Users/wamburu/androidtools
 export ANDROID_HOME=~/androidtools
 export PATH="/Users/wamburu/miniconda3/bin:$PATH"
+export GPG_TTY=$(tty)
 #export PATH=$PATH:$ANDROID_HOME/tools
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -160,7 +161,7 @@ antigen bundle psprint/history-search-multi-word
 antigen bundle zsh-users/zsh-history-substring-search
 # antigen bundle gko/ssh-connect
 # antigen bundle tomsquest/nvm-auto-use.zsh
-# antigen bundle supercrabtree/k
+antigen bundle supercrabtree/k
 # antigen bundle felixr/docker-zsh-completion
 antigen bundle zsh-users/zsh-autosuggestions
 
@@ -186,6 +187,7 @@ SPACESHIP_PROMPT_ORDER=(
   swift
   golang
   docker
+  conda
   time
   venv
   pyenv
