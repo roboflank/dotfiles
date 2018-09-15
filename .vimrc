@@ -34,6 +34,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Unmanaged plugin (manually installed and updated)
 Plug '~/my-prototype-plugin'
 
+" Startup screen
+Plug 'mhinz/vim-startify'
+
 " Python mode
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 
@@ -54,11 +57,12 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'dracula/vim', { 'as': 'dracula' }'
 Plug 'moll/vim-node'
+Plug 'leafgarland/typescript-vim'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
-#autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 autocmd FileType python BracelessEnable +indent
 let g:javascript_plugin_jsdoc = 1
