@@ -1,4 +1,4 @@
-" Specify a directory for plugins
+
 " For Neovim: ~/.local/share/nvim/plugged
 " Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
@@ -86,6 +86,8 @@ colorscheme gruvbox
 "Nerd Icons
 Plug 'ryanoasis/vim-devicons'
 set encoding=UTF-8
+"set guifont=DroidSansMono\ Nerd\ Font:h11
+set guifont=DroidSansMono_Nerd_Font:h11
 " Airline theme configs
 let g:airline_theme='violet'
 let g:airline_powerline_fonts = 1
