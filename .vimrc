@@ -1,17 +1,14 @@
 " Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
+" For Neovim: ~/.local/share/nvim/plugged
+" Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+" Shorthand notation;
 Plug 'junegunn/vim-easy-align'
 
-" Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" Multiple Plug commands can be written in a single line using | separators
+" Multiple commands can be written in a single line using | separators
 Plug 'SirVer/ultisnips'  
 Plug 'honza/vim-snippets'
 
@@ -86,6 +83,12 @@ let ayucolor="dark"   " for dark version of theme
 set background=dark
 colorscheme gruvbox
 
+"Nerd Icons
+Plug 'ryanoasis/vim-devicons'
+set encoding=UTF-8
+" Airline theme configs
+let g:airline_theme='violet'
+let g:airline_powerline_fonts = 1
 
 " Initialize plugin system
 call plug#end()
