@@ -43,8 +43,9 @@ export ZSH=/Users/wamburu/.oh-my-zsh
 #export PATH="~/androidtools/"
 #export ANDROID_HOME=/Users/wamburu/androidtools
 export ANDROID_HOME=~/androidtools
-export PATH="/Users/wamburu/miniconda3/bin:$PATH"
-export GPG_TTY=$(tty)
+export PATH="/Users/wamburu/miniconda3/bin:$PATH" 
+export PATH=$PATH:/usr/local/sbin
+export tGPG_TTY=$(tty)
 #export PATH=$PATH:$ANDROID_HOME/tools
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -95,7 +96,7 @@ export NVM_DIR="/Users/wamburu/.nvm"
 
 #Antigen  Paths
 #source ~/.antigen/antigen.zsh
-source /usr/local/share/antigen/antigen.zsh
+source /Users/wamburu/antigen.zsh
 # source "${HOME}/.zgen/zgen.zsh"
 # if the init scipt doesn't exist
 # if ! zgen saved; then
@@ -166,6 +167,7 @@ antigen bundle supercrabtree/k
 antigen bundle zsh-users/zsh-autosuggestions
 
 #theme
+#antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
 #antigen theme honukiai
 #antigen theme oskarkrawczyk/honukai-iterm-zsh
 # antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
@@ -340,3 +342,5 @@ export PATH=$PATH:/Users/wamburu/.git-semantic-commits:$PATH
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

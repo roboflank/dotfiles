@@ -16,8 +16,8 @@ Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
-" Using a non-master branch
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+" Autocomplete
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
 Plug 'fatih/vim-go', { 'tag': '*' }
@@ -91,6 +91,16 @@ set guifont=DroidSansMono_Nerd_Font:h11
 " Airline theme configs
 let g:airline_theme='violet'
 let g:airline_powerline_fonts = 1
+
+" Youcomplete me configs
+" Start autocompletion after 4 chars
+let g:ycm_min_num_of_chars_for_completion = 4
+let g:ycm_min_num_identifier_candidate_chars = 4
+let g:ycm_enable_diagnostic_highlighting = 0
+
+" Don't show YCM's preview window [ I find it really annoying ]
+set completeopt-=preview
+let g:ycm_add_preview_to_completeopt = 0
 
 " Initialize plugin system
 call plug#end()
