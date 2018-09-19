@@ -28,7 +28,7 @@ Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
+Plug 'ctrlpvim/ctrlp.vim'
 " Startup screen
 Plug 'mhinz/vim-startify'
 
@@ -47,6 +47,8 @@ Plug 'davidhalter/jedi-vim'
 Plug 'tweekmonster/braceless.vim'
 
 
+" HTML Plugins
+Plug 'alvan/vim-closetag'
 " Js Plugins
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
