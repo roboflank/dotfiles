@@ -4,13 +4,14 @@
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
+Plug 'SirVer/ultisnips'
 
 " Shorthand notation;
 Plug 'junegunn/vim-easy-align'
 
-" Multiple commands can be written in a single line using | separators
-Plug 'SirVer/ultisnips'  
-Plug 'honza/vim-snippets'
+" Multiple commands
+"Plug 'SirVer/ultisnips'  
+"Plug 'honza/vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -18,7 +19,7 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 " Autocomplete
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
-
+Plug 'Shougo/neocomplete.vim'
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
 Plug 'fatih/vim-go', { 'tag': '*' }
 
@@ -41,7 +42,8 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
-
+Plug 'scrooloose/syntastic'
+Plug 'airblade/vim-gitgutter'
 " Py plugins
 Plug 'davidhalter/jedi-vim'
 Plug 'tweekmonster/braceless.vim'
@@ -72,6 +74,7 @@ map <C-n> :NERDTreeToggle<CR>
 autocmd FileType python BracelessEnable +indent
 let g:javascript_plugin_jsdoc = 1
 
+let g:pymode_python = 'python3'
 " Dracula color scheme
 "syntax on
 "color dracula
@@ -103,6 +106,7 @@ let g:ycm_enable_diagnostic_highlighting = 0
 " Don't show YCM's preview window [ I find it really annoying ]
 set completeopt-=preview
 let g:ycm_add_preview_to_completeopt = 0
-
+let g:neocomplete#enable_at_startup = 1
+let g:ycm_path_to_python_interpreter = 'python3'
 " Initialize plugin system
 call plug#end()
