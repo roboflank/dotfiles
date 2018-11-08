@@ -5,7 +5,7 @@ Updated Files. Base Fork from : [mathiasbynens/dotfiles](https://github.com/math
 ### Improvements
 - [sb2nov/mac-setup](https://github.com/sb2nov/mac-setup)
 
-![alt text](https://raw.githubusercontent.com/denzelwamburu/dotfiles/master/mac/screen.png)
+![alt text](https://raw.githubusercontent.com/wamburu/dotfiles/master/mac/screen.png)
 
 
 
