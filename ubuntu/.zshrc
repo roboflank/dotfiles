@@ -2,8 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/wamburu/.oh-my-zsh
-
+#export ZSH=/Users/wamburu/.oh-my-zsh
+export ZSH="/home/darth/.oh-my-zsh"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -91,12 +91,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export NVM_DIR="/Users/wamburu/.nvm"
+export NVM_DIR="/home/darth/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 #Antigen  Paths
 #source ~/.antigen/antigen.zsh
-source /Users/wamburu/antigen.zsh
+source /home/darth/antigen.zsh
 # source "${HOME}/.zgen/zgen.zsh"
 # if the init scipt doesn't exist
 # if ! zgen saved; then
@@ -170,7 +170,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 #antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
 #antigen theme honukiai
 #antigen theme oskarkrawczyk/honukai-iterm-zsh
-# antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
+antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 
 #autoload -U promptinit; promptinit
 #autoload -U promptinit; promptinit
@@ -337,10 +337,10 @@ if [ -f '/Users/wamburu/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source 
 if [ -f '/Users/wamburu/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/wamburu/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval $(thefuck --alias)
-export PATH=$PATH:/Users/wamburu/.git-semantic-commits:$PATH
+export PATH=$PATH:/home/darth/.git-semantic-commits:$PATH
 
 # Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
+#autoload -U promptinit; promptinit
+#prompt spaceship
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
