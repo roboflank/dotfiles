@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/wamburu/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -43,9 +43,9 @@ export ZSH=/Users/wamburu/.oh-my-zsh
 #export PATH="~/androidtools/"
 #export ANDROID_HOME=/Users/wamburu/androidtools
 export ANDROID_HOME=~/androidtools
-export PATH="/Users/wamburu/miniconda3/bin:$PATH" 
+export PATH=$HOME/miniconda3/bin:$PATH 
 export PATH=$PATH:/usr/local/sbin
-export tGPG_TTY=$(tty)
+export GPG_TTY=$(tty)
 #export PATH=$PATH:$ANDROID_HOME/tools
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -91,12 +91,16 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export NVM_DIR="/Users/wamburu/.nvm"
+#export NVM_DIR="~/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #Antigen  Paths
-#source ~/.antigen/antigen.zsh
-source /Users/wamburu/antigen.zsh
+source ~/antigen.zsh
+#source /Users/wamburu/antigen.zsh
 # source "${HOME}/.zgen/zgen.zsh"
 # if the init scipt doesn't exist
 # if ! zgen saved; then
@@ -337,8 +341,8 @@ if [ -f '/Users/wamburu/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source 
 if [ -f '/Users/wamburu/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/wamburu/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval $(thefuck --alias)
-export PATH=$PATH:/Users/wamburu/.git-semantic-commits:$PATH
-
+#export PATH=$PATH:/Users/wamburu/.git-semantic-commits:$PATH
+export PATH=$PATH:$HOME/.git-semantic-commits:$PATH
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
