@@ -43,7 +43,7 @@ export ZSH="/home/darth/.oh-my-zsh"
 #export PATH="~/androidtools/"
 #export ANDROID_HOME=/Users/wamburu/androidtools
 export ANDROID_HOME=~/androidtools
-export PATH="/Users/wamburu/miniconda3/bin:$PATH" 
+#export PATH="/Users/wamburu/miniconda3/bin:$PATH" 
 export PATH=$PATH:/usr/local/sbin
 export tGPG_TTY=$(tty)
 #export PATH=$PATH:$ANDROID_HOME/tools
@@ -338,6 +338,22 @@ if [ -f '/Users/wamburu/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then s
 
 eval $(thefuck --alias)
 export PATH=$PATH:/home/darth/.git-semantic-commits:$PATH
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/darth/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/darth/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/darth/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/darth/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
 
 # Set Spaceship ZSH as a prompt
 #autoload -U promptinit; promptinit
