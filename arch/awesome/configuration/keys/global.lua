@@ -293,6 +293,14 @@ local globalKeys = awful.util.table.join(
 		{description = 'dropdown application', group = 'launcher'}
 	),
 	awful.key(
+		{modkey},
+		'<',
+		function()
+			_G.toggle_quake()
+		end,
+		{description = 'dropdown application', group = 'launcher'}
+	),
+	awful.key(
 		{modkey}, 
 		'm',
 		function()
