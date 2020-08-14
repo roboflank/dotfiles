@@ -107,6 +107,18 @@ local globalKeys = awful.util.table.join(
 		awful.tag.viewnext, 
 		{description = 'view next tag', group = 'tag'}
 	),
+	awful.key({ modkey }, "n",
+	function ()
+		awful.layout.set(awful.layout.suit.corner.nw)
+		for _, c in ipairs(client.get()) do
+			if c.maximized then
+				c.maximized = not c.maximized
+				c:raise()
+			end 
+		end
+	end,
+   {description = "show all open windows of workspace", group = "client"}),
+   
 	awful.key(
 		{modkey}, 
 		'Escape', 
