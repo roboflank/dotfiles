@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/darth/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 #export ZSH="~/.oh-my-zsh"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -42,96 +42,19 @@ export ZSH=/home/darth/.oh-my-zsh
 # export ANDROID_HOME=~/androidtools
 #export PATH="~/androidtools/"
 #export ANDROID_HOME=/Users/wamburu/androidtools
-export ANDROID_HOME=~/androidtools
+# export ANDROID_HOME=~/androidtools
 #export PATH="~/miniconda3/bin:$PATH" 
 export PATH=$PATH:/usr/local/sbin
 export tGPG_TTY=$(tty)
-#export PATH=$PATH:$ANDROID_HOME/tools
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~e
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-#plugins=(history-search-multi-word zsh-syntax-highlighting git k httpie autojump-zsh zsh-autosuggestions npm node bower wd git-flow yarn tmux zsh-wakatime)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-export NVM_DIR="/home/darth/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 #Antigen  Paths
 #source ~/.antigen/antigen.zsh
-source /home/darth/antigen.zsh
-# source "${HOME}/.zgen/zgen.zsh"
-# if the init scipt doesn't exist
-# if ! zgen saved; then
-
-#   # specify  here
-#   zgen oh-my-zsh
-# zgen oh-my-zsh plugins/git
-# zgen oh-my-zsh plugins/sudo
-# zgen oh-my-zsh plugins/command-not-found
-# zgen oh-my-zsh plugins/history
-# zgen oh-my-zsh plugins/rsync
-# zgen oh-my-zsh plugins/pip
-# zgen oh-my-zsh plugins/lein
-# zgen oh-my-zsh plugins/python
-# zgen oh-my-zsh plugins/httpie
-# zgen oh-my-zsh plugins/tmux
-# zgen oh-my-zsh plugins/npm
-# zgen oh-my-zsh plugins/node
-# zgen oh-my-zsh plugins/osx
-
-# zgen prezto
-# # Custom plugins
-# zgen load zsh-users/zsh-completions
-# zgen load zsh-users/zsh-autosuggestions
-# zgen load supercrabtree/k
-# zgen load zsh-users/zsh-history-substring-search
-# zgen load psprint/history-search-multi-word
-# zgen load zsh-users/zsh-syntax-highlighting
-
-
-
-#   # generate the init script from plugins above
-#   zgen save
-# fi
-# antigen bundle webyneter/docker-aliases.git
+source $HOME/antigen.zsh
 
 #Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -157,7 +80,7 @@ antigen bundle kennethreitz/autoenv
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen bundle unixorn/docker-helpers.zshplugin
-# antigen bundle wuotr/zsh-plugin-vscode
+antigen bundle wuotr/zsh-plugin-vscode
 antigen bundle psprint/history-search-multi-word
 antigen bundle zsh-users/zsh-history-substring-search
 # antigen bundle gko/ssh-connect
@@ -166,10 +89,6 @@ antigen bundle supercrabtree/k
 # antigen bundle felixr/docker-zsh-completion
 antigen bundle zsh-users/zsh-autosuggestions
 
-#theme
-#antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
-#antigen theme honukiai
-#antigen theme oskarkrawczyk/honukai-iterm-zsh
 antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 
 #autoload -U promptinit; promptinit
@@ -193,6 +112,7 @@ SPACESHIP_PROMPT_ORDER=(
   time
   venv
   pyenv
+  battery
   line_sep
   vi_mode
   char
@@ -327,26 +247,28 @@ SPACESHIP_VI_MODE_INSERT="[I]"
 SPACESHIP_VI_MODE_NORMAL="[N]"
 SPACESHIP_VI_MODE_COLOR="white"
 
-
-
+# battery
+SPACESHIP_BATTERY_SHOW=true
+SPACESHIP_BATTERY_PREFIX='🔋'
+SPACESHIP_BATTERY_THRESHOLD=30
 antigen apply
 # The next line updates PATH for the Google Cloud SDK.
 eval $(thefuck --alias)
-export PATH=$PATH:/home/darth/.git-semantic-commits:$PATH
-
+export PATH=$PATH:$HOME/.git-semantic-commits:$PATH
+#alias  lua=lua5.3
 # Set Spaceship ZSH as a prompt
 #autoload -U promptinit; promptinit
 #MiniConda
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/darth/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/jarvis/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/darth/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/darth/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/jarvis/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/jarvis/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/darth/miniconda3/bin:$PATH"
+        export PATH="/home/jarvis/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -355,3 +277,4 @@ unset __conda_setup
 #prompt spaceship
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
