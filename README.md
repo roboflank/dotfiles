@@ -8,7 +8,7 @@
 - Window Manager: [AwesomeWM](https://awesomewm.org/) 🪄
 - File Manager: [Dolphin](https://wiki.archlinux.org/index.php/Dolphin) 🐬
 - Launcher: [Rofi](https://github.com/davatorium/rofi/) 🕵🏿
-- Icons: [Tela](https://github.co m/vinceliuice/Tela-icon-theme) 💅🏿
+- Icons: [Tela](https://github.com/vinceliuice/Tela-icon-theme) 💅🏿
 - Font: [FiraCode](https://github.com/tonsky/FiraCode) 🖋️
 - [Dotfiles](http://github.com/wamburu/dotfiles/) 🧰
 
