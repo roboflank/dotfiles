@@ -65,6 +65,8 @@ Plug 'tpope/vim-eunuch'                                 " run common Unix comman
 Plug 'machakann/vim-sandwich'                           " make sandwiches
 Plug 'easymotion/vim-easymotion'                        " make movement a lot faster and easier
 Plug '907th/vim-auto-save'                              " nothing beats this
+Plug 'wakatime/vim-wakatime'
+Plug 'mcchrish/nnn.vim'                                 " nnn file manager
 call plug#end()
 
 "}}}
