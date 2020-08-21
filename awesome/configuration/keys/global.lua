@@ -186,21 +186,21 @@ local globalKeys = awful.util.table.join(
 		{},
 		'XF86MonBrightnessUp',
 		function()
-			awful.spawn('light -A 10', false)
+			awful.spawn('light -A 5', false)
 			awesome.emit_signal('widget::brightness')
 			awesome.emit_signal('module::brightness_osd:show', true)
 		end,
-		{description = 'increase brightness by 10%', group = 'hotkeys'}
+		{description = 'increase brightness by 5%', group = 'hotkeys'}
 	),
 	awful.key(
 		{},
 		'XF86MonBrightnessDown',
 		function()
-			awful.spawn('light -U 10', false)
+			awful.spawn('light -U 5', false)
 			awesome.emit_signal('widget::brightness')
 			awesome.emit_signal('module::brightness_osd:show', true)
 		end,
-		{description = 'decrease brightness by 10%', group = 'hotkeys'}
+		{description = 'decrease brightness by 5%', group = 'hotkeys'}
 	),
 	-- ALSA volume control
 	awful.key(
