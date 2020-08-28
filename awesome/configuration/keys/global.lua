@@ -102,6 +102,19 @@ local globalKeys = awful.util.table.join(
 	),
 	
 	awful.key(
+		{modkey, 'Control'}, 
+		'Down', 
+		awful.tag.viewnext, 
+		{description = 'view next tag', group = 'tag'}
+	),
+	awful.key(
+		{modkey, 'Control'}, 
+		'Up', 
+		awful.tag.viewprev, 
+		{description = 'view previous tag', group = 'tag'}
+	),
+	
+	awful.key(
 		{modkey}, 
 		's', 
 		awful.tag.viewnext, 
