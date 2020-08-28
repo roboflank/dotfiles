@@ -33,7 +33,8 @@ local wall_dir = filesystem.get_configuration_dir() .. 'theme/wallpapers/'
 -- wallpaper_morning = 'morning-wallpaper.jpg'
 wallpaper_morning = 'ocean.jpg'
 wallpaper_noon = 'noon-wallpaper.jpg'
-wallpaper_night = 'night-wallpaper.jpg'
+-- wallpaper_night = 'night-wallpaper.jpg'
+wallpaper_night = 'ocean.jpg'
 wallpaper_midnight = 'midnight-wallpaper.jpg'
 
 -- Change the wallpaper on scheduled time
