@@ -72,7 +72,7 @@ antigen bundle httpie
 antigen bundle tmux
 antigen bundle npm
 antigen bundle node
-antigen bundle osx
+#antigen bundle osx
 # # Third Party
 antigen bundle kennethreitz/autoenv
 
@@ -255,7 +255,7 @@ antigen apply
 # The next line updates PATH for the Google Cloud SDK.
 eval $(thefuck --alias)
 export PATH=$PATH:$HOME/.git-semantic-commits:$PATH
-#alias  lua=lua5.3
+alias lg=lazygit
 # Set Spaceship ZSH as a prompt
 #autoload -U promptinit; promptinit
 #MiniConda
