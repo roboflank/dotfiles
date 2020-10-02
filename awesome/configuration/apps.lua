@@ -66,7 +66,7 @@ return {
 		'blueman-applet',
 
 		-- Music Server
-		'mpd',
+		-- 'mpd',
 
 		-- Power manager
 		'xfce4-power-manager',

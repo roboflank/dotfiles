@@ -121,7 +121,7 @@ ruled.client.connect_signal(
 				}
 			},
 			except_any = {
-				instance = { 'QuakeTerminal' }
+				instance = { 'kitty' }
 			},
 			properties = {
 				tag = '1',
@@ -138,7 +138,6 @@ ruled.client.connect_signal(
 				class = {
 					'firefox',
 					'Tor Browser',
-					'discord',
 					'Chromium',
 					'Google-chrome'
 				}
@@ -210,7 +209,8 @@ ruled.client.connect_signal(
 					'dolphin-emu',
 					'Steam',
 					'Citra',
-					'SuperTuxKart'
+					'SuperTuxKart',
+					'discord'
 				},
 				name = { 'Steam' }
 			},
