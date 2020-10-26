@@ -256,6 +256,7 @@ antigen apply
 eval $(thefuck --alias)
 export PATH=$PATH:$HOME/.git-semantic-commits:$PATH
 alias lg=lazygit
+export DOCKERHOST=$(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | awk '{ print $2 }' | cut -f2 -d: | head -n1)
 # Set Spaceship ZSH as a prompt
 #autoload -U promptinit; promptinit
 #MiniConda
@@ -278,3 +279,5 @@ unset __conda_setup
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
