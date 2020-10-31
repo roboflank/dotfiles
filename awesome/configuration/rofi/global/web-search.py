@@ -39,7 +39,7 @@ import html
 #####                      C O N F I G U R A T I O N                      ######
 ################################################################################
 SEARCH_ENGINE = 'google'            # or 'duckduckgo'
-BROWSER = 'chromium'                 # or 'firefox', 'chromium', 'brave', 'lynx'
+BROWSER = 'firefox'                 # or 'firefox', 'chromium', 'brave', 'lynx'
 TERMINAL = ['kitty', '--']          # or ['st', '-e'] or something like that
 ################################################################################
 
@@ -47,7 +47,7 @@ CONFIG = {
     'BROWSER_PATH' : {
         'chrome' : ['google-chrome-stable'],
         'firefox' : ['firefox'],
-        'chromium' : ['chromium'],
+        'chromium' : ['chromium-browser'],
         'brave' : ['brave-browser'],
         'lynx' : TERMINAL + ['lynx']
     },

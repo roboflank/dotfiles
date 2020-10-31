@@ -17,24 +17,18 @@ local editor_cmd = terminal .. ' -e ' .. (os.getenv('EDITOR') or 'nano')
 
 --[[
 
-     Awesome-Freedesktop
-     Freedesktop.org compliant desktop entries and menu
+	Awesome-Freedesktop
+	Freedesktop.org compliant desktop entries and menu
 
-     Menu section
+	Menu section
 
-     Licensed under GNU General Public License v2
-      * (c) 2016, Luke Bonham
-      * (c) 2014, Harvey Mittens
+	Licensed under GNU General Public License v2
+	  * (c) 2016, Luke Bonham
+	  * (c) 2014, Harvey Mittens
 
 --]]
 
 local io, pairs, string, table, os = io, pairs, string, table, os
-
--- Add support for NixOS systems too
-table.insert(
-	menu_gen.all_menu_dirs,
-	string.format('%s/.nix-profile/share/applications', os.getenv('HOME'))
-)
 
 -- Expecting a wm_name of awesome omits too many applications and tools
 menu_utils.wm_name = ''
@@ -201,7 +195,7 @@ local screenshot_menu = {
 			gears.timer.start_new(
 				0.1,
 				function()
-					awful.spawn.easy_async_with_shell(apps.bins.full_screenshot)
+					awful.spawn.easy_async_with_shell(apps.utils.full_screenshot)
 				end
 			)
 		end,
@@ -213,7 +207,7 @@ local screenshot_menu = {
 			gears.timer.start_new(
 				0.1,
 				function()
-					awful.spawn.easy_async_with_shell(apps.bins.area_screenshot)
+					awful.spawn.easy_async_with_shell(apps.utils.area_screenshot)
 				end,
 				menubar.utils.lookup_icon('accessories-screenshot')
 			)
@@ -236,7 +230,7 @@ local tools_menu = {
 	{
 		'End Session',
 		function()
-			awesome.emit_signal('module::exit_screen_show')
+			awesome.emit_signal('module::exit_screen:show')
 		end,
 		menubar.utils.lookup_icon('system-shutdown') 
 	}
@@ -249,4 +243,4 @@ mymainmenu = menu.build({
 	after = tools_menu
 })
 
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
+mylauncher = awful.widget.launcher({image = beautiful.awesome_icon, menu = mymainmenu})

@@ -4,8 +4,8 @@ local theme_dir = filesystem.get_configuration_dir() .. '/theme'
 local theme = {}
 
 theme.icons = theme_dir .. '/icons/'
-theme.font = 'Fira Code Regular 10'
-theme.font_bold = 'Fira Code Bold 10'
+theme.font = 'Inter Regular 10'
+theme.font_bold = 'Inter Bold 10'
 
 -- Colorscheme
 theme.system_black_dark = '#3D4C5F'
