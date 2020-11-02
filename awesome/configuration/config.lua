@@ -63,7 +63,7 @@ return {
 				['00:00:00'] = 'midnight-wallpaper.jpg',
 				['06:22:00'] = 'ocean.jpg',
 				['12:00:00'] = 'noon-wallpaper.jpg',
-				['17:58:00'] = 'ocean.jpg'
+				['17:58:00'] = 'night-wallpaper.jpeg'
 				-- Example of just using auto-scheduling with keywords
 				--[[
 					'midnight',

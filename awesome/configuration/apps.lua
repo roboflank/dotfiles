@@ -25,7 +25,7 @@ return {
 		development = '',
 		-- Default network manager
 		-- network_manager = 'kitty iwctl',
-		network_manager = 'kitty nm-connection-editor',
+		network_manager = 'nm-connection-editor',
 		-- Default bluetooth manager
 		bluetooth_manager = 'blueman-manager',
 		-- Default power manager
