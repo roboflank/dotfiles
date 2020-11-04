@@ -48,8 +48,8 @@ local awesome_overrides = function(theme)
 	theme.titlebar_size = dpi(34)
 	theme.titlebar_bg_focus = gtk_variable().bg_color:sub(1,7) .. '66'
 	theme.titlebar_bg_normal = gtk_variable().base_color:sub(1,7) .. '66'
-	theme.titlebar_fg_focus = gtk_variable().fg_color .. '00'
-	theme.titlebar_fg_normal = gtk_variable().fg_color .. '00'
+	theme.titlebar_fg_focus = gtk_variable().fg_color
+	theme.titlebar_fg_normal = gtk_variable().fg_color
 
 	-- Close Button
 	theme.titlebar_close_button_normal = tip .. 'close_normal.svg'
@@ -136,8 +136,11 @@ local awesome_overrides = function(theme)
 	theme.border_radius = dpi(9)
 
 	-- Decorations
-	theme.client_radius = dpi(9)
 	theme.useless_gap = dpi(4)
+	theme.client_shape_rectangle = gears.shape.rectangle
+	theme.client_shape_rounded = function(cr, width, height)
+		gears.shape.rounded_rect(cr, width, height, dpi(6))
+	end
 
 	-- Menu
 	theme.menu_font = 'Inter Regular 11'

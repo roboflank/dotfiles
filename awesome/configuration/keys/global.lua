@@ -10,7 +10,7 @@ local altkey = require('configuration.keys.mod').alt_key
 local apps = require('configuration.apps')
 
 -- Key bindings
-local globalKeys = awful.util.table.join(
+local global_keys = awful.util.table.join(
 
 	-- Hotkeys
 	awful.key(
@@ -95,43 +95,33 @@ local globalKeys = awful.util.table.join(
 		{description = 'select previous layout', group = 'layout'}
 	),
 	awful.key(
+		{modkey},
+		'o',
+		function()
+			awful.tag.incgap(1)
+		end,
+		{description = 'increase gap', group = 'layout'}
+	),
+	awful.key(
+		{modkey, 'Shift'},
+		'o',
+		function()
+			awful.tag.incgap(-1)
+		end,
+		{description = 'decrease gap', group = 'layout'}
+	),
+	awful.key(
 		{modkey}, 
 		'w', 
 		awful.tag.viewprev, 
 		{description = 'view previous tag', group = 'tag'}
 	),
-	
-	awful.key(
-		{modkey, 'Control'}, 
-		'Down', 
-		awful.tag.viewnext, 
-		{description = 'view next tag', group = 'tag'}
-	),
-	awful.key(
-		{modkey, 'Control'}, 
-		'Up', 
-		awful.tag.viewprev, 
-		{description = 'view previous tag', group = 'tag'}
-	),
-	
 	awful.key(
 		{modkey}, 
 		's', 
 		awful.tag.viewnext, 
 		{description = 'view next tag', group = 'tag'}
 	),
-	awful.key({ modkey }, "n",
-	function ()
-		awful.layout.set(awful.layout.suit.corner.nw)
-		for _, c in ipairs(client.get()) do
-			if c.maximized then
-				c.maximized = not c.maximized
-				c:raise()
-			end 
-		end
-	end,
-   {description = "show all open windows of workspace", group = "client"}),
-   
 	awful.key(
 		{modkey}, 
 		'Escape', 
@@ -189,7 +179,7 @@ local globalKeys = awful.util.table.join(
 			local c = awful.client.restore()
 			-- Focus restored client
 			if c then
-				client.focus = c
+				c:emit_signal('request::activate')
 				c:raise()
 			end
 		end,
@@ -199,21 +189,21 @@ local globalKeys = awful.util.table.join(
 		{},
 		'XF86MonBrightnessUp',
 		function()
-			awful.spawn('light -A 5', false)
+			awful.spawn('light -A 10', false)
 			awesome.emit_signal('widget::brightness')
 			awesome.emit_signal('module::brightness_osd:show', true)
 		end,
-		{description = 'increase brightness by 5%', group = 'hotkeys'}
+		{description = 'increase brightness by 10%', group = 'hotkeys'}
 	),
 	awful.key(
 		{},
 		'XF86MonBrightnessDown',
 		function()
-			awful.spawn('light -U 5', false)
+			awful.spawn('light -U 10', false)
 			awesome.emit_signal('widget::brightness')
 			awesome.emit_signal('module::brightness_osd:show', true)
 		end,
-		{description = 'decrease brightness by 5%', group = 'hotkeys'}
+		{description = 'decrease brightness by 10%', group = 'hotkeys'}
 	),
 	-- ALSA volume control
 	awful.key(
@@ -289,7 +279,7 @@ local globalKeys = awful.util.table.join(
 		{},
 		'XF86PowerOff',
 		function()
-			awesome.emit_signal('module::exit_screen_show')
+			awesome.emit_signal('module::exit_screen:show')
 		end,
 		{description = 'toggle exit screen', group = 'hotkeys'}
 	),
@@ -305,7 +295,7 @@ local globalKeys = awful.util.table.join(
 		{modkey, 'Shift'},
 		'q',
 		function()
-			awesome.emit_signal('module::exit_screen_show')
+			awesome.emit_signal('module::exit_screen:show')
 		end,
 		{description = 'toggle exit screen', group = 'hotkeys'}
 	),
@@ -313,7 +303,7 @@ local globalKeys = awful.util.table.join(
 		{modkey},
 		'`',
 		function()
-			_G.toggle_quake()
+			awesome.emit_signal('module::quake_terminal:toggle')
 		end,
 		{description = 'dropdown application', group = 'launcher'}
 	),
@@ -321,7 +311,7 @@ local globalKeys = awful.util.table.join(
 		{modkey},
 		'<',
 		function()
-			_G.toggle_quake()
+			awesome.emit_signal('module::quake_terminal:toggle')
 		end,
 		{description = 'dropdown application', group = 'launcher'}
 	),
@@ -339,7 +329,7 @@ local globalKeys = awful.util.table.join(
 		{ }, 
 		'Print',
 		function ()
-			awful.spawn.easy_async_with_shell(apps.bins.full_screenshot,function() end)
+			awful.spawn.easy_async_with_shell(apps.utils.full_screenshot,function() end)
 		end,
 		{description = 'fullscreen screenshot', group = 'Utility'}
 	),
@@ -347,7 +337,7 @@ local globalKeys = awful.util.table.join(
 		{modkey, 'Shift'}, 
 		's',
 		function ()
-			awful.spawn.easy_async_with_shell(apps.bins.area_screenshot,function() end)
+			awful.spawn.easy_async_with_shell(apps.utils.area_screenshot,function() end)
 		end,
 		{description = 'area/selected screenshot', group = 'Utility'}
 	),
@@ -521,7 +511,7 @@ local globalKeys = awful.util.table.join(
 				_G.right_panel_mode = 'today_mode'
 			end
 		end,
-		{description = 'open notification center', group = 'launcher'}
+		{description = 'open today pane', group = 'launcher'}
 	),
 	awful.key(
 		{modkey}, 
@@ -544,7 +534,7 @@ local globalKeys = awful.util.table.join(
 				_G.right_panel_mode = 'notif_mode'
 			end
 		end,
-		{description = 'open today pane', group = 'launcher'}
+		{description = 'open notification center', group = 'launcher'}
 	)
 )
 
@@ -560,9 +550,9 @@ for i = 1, 9 do
 		descr_move = {description = 'move focused client to tag #', group = 'tag'}
 		descr_toggle_focus = {description = 'toggle focused client on tag #', group = 'tag'}
 	end
-	globalKeys =
+	global_keys =
 		awful.util.table.join(
-		globalKeys,
+		global_keys,
 		-- View tag only.
 		awful.key(
 			{modkey},
@@ -620,4 +610,4 @@ for i = 1, 9 do
 	)
 end
 
-return globalKeys
+return global_keys

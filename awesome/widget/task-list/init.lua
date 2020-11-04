@@ -1,26 +1,14 @@
 local awful = require('awful')
 local wibox = require('wibox')
 local dpi = require('beautiful').xresources.apply_dpi
-local capi = {button = _G.button}
 local gears = require('gears')
-
 local clickable_container = require('widget.clickable-container')
 local icons = require('theme.icons')
-
---- sub string for utf8 format
--- @s the string need to be sub
--- @i index of start position
--- @j index of end position
-local function utf8_sub(s, i, j)
-    i = utf8.offset(s, i)
-    j = (utf8.offset(s, j + 1) or j + 1) - 1
-    return gears.string.xml_escape(s:sub(i, j))
-end
 
 --- Common method to create buttons.
 -- @tab buttons
 -- @param object
--- @treturn table
+-- @return table
 local function create_buttons(buttons, object)
 	if buttons then
 		local btns = {}
@@ -29,28 +17,24 @@ local function create_buttons(buttons, object)
 			-- press and release events, and will propagate them to the
 			-- button object the user provided, but with the object as
 			-- argument.
-			local btn = capi.button {modifiers = b.modifiers, button = b.button}
-			btn:connect_signal(
-				'press',
-				function()
+			local btn = awful.button {
+				modifiers = b.modifiers,
+				button = b.button,
+				on_press = function()
 					b:emit_signal('press', object)
-				end
-			)
-			btn:connect_signal(
-				'release',
-				function()
+				end,
+				on_release = function()
 					b:emit_signal('release', object)
 				end
-			)
+			}
 			btns[#btns + 1] = btn
 		end
-
 		return btns
 	end
 end
 
 local function list_update(w, buttons, label, data, objects)
-	-- update the widgets, creating them if needed
+	-- Update the widgets, creating them if needed
 	w:reset()
 	for i, o in ipairs(objects) do
 		local cache = data[o]
@@ -157,10 +141,10 @@ local function list_update(w, buttons, label, data, objects)
 		if text == nil or text == '' then
 			tbm:set_margins(0)
 		else
-			-- truncate when title is too long
+			-- Truncate when title is too long
 			local text_only = text:match('>(.-)<')
-			if (text_only:len() > 24) then
-				text = text:gsub('>(.-)<', '>' .. utf8_sub(text_only,1,21) .. '...<')
+			if (utf8.len(text_only) > 24) then
+				text = text:gsub('>(.-)<', '>' .. string.sub(text_only, 1, utf8.offset(text_only,22) - 1) .. '...<')
 				tt:set_text(text_only)
 				tt:add_to_object(tb)
 			else
@@ -189,13 +173,13 @@ local function list_update(w, buttons, label, data, objects)
 		w:add(bgb)
 	end
 end
-local tasklist_buttons =
-	awful.util.table.join(
+
+local tasklist_buttons = awful.util.table.join(
 	awful.button(
 		{},
 		1,
 		function(c)
-			if c == _G.client.focus then
+			if c == client.focus then
 				c.minimized = true
 			else
 				-- Without this, the following
@@ -206,7 +190,7 @@ local tasklist_buttons =
 				end
 				-- This will also un-minimize
 				-- the client, if needed
-				_G.client.focus = c
+				c:emit_signal('request::activate')
 				c:raise()
 			end
 		end

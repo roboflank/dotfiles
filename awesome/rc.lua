@@ -5,7 +5,14 @@
 
 local gears = require('gears')
 local beautiful = require('beautiful')
+local awful = require('awful')
 require('awful.autofocus')
+
+-- ░█▀▀░█░█░█▀▀░█░░░█░░
+-- ░▀▀█░█▀█░█▀▀░█░░░█░░
+-- ░▀▀▀░▀░▀░▀▀▀░▀▀▀░▀▀▀
+
+awful.util.shell = 'sh'
 
 -- ░▀█▀░█░█░█▀▀░█▄█░█▀▀
 -- ░░█░░█▀█░█▀▀░█░█░█▀▀
@@ -34,8 +41,6 @@ root.keys(require('configuration.keys.global'))
 
 require('module.notifications')
 require('module.auto-start')
-require('module.backdrop')
-require('module.decorate-client')
 require('module.exit-screen')
 require('module.quake-terminal')
 require('module.menu')
