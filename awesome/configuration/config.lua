@@ -16,7 +16,7 @@ return {
 		city_id       = '184745',
 		units         = 'metric',
 			-- Update in N seconds
-			update_interval = 1200
+		update_interval = 1200
 		},
 
 		network = {
