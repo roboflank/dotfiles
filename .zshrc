@@ -74,7 +74,9 @@ antigen bundle npm
 antigen bundle node
 #antigen bundle osx
 # # Third Party
-antigen bundle kennethreitz/autoenv
+#antigen bundle kennethreitz/autoenv
+
+
 
 # # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-completions
@@ -88,7 +90,7 @@ antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle supercrabtree/k
 # antigen bundle felixr/docker-zsh-completion
 antigen bundle zsh-users/zsh-autosuggestions
-
+antigen bundle sobolevn/wakatime-zsh-plugin
 antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 
 #autoload -U promptinit; promptinit
@@ -281,3 +283,8 @@ unset __conda_setup
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+alias yd=youtube-dl
+alias py=python
