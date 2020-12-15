@@ -255,9 +255,7 @@ SPACESHIP_BATTERY_PREFIX='🔋'
 SPACESHIP_BATTERY_THRESHOLD=30
 antigen apply
 # The next line updates PATH for the Google Cloud SDK.
-eval $(thefuck --alias)
 export PATH=$PATH:$HOME/.git-semantic-commits:$PATH
-alias lg=lazygit
 export DOCKERHOST=$(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | awk '{ print $2 }' | cut -f2 -d: | head -n1)
 # Set Spaceship ZSH as a prompt
 #autoload -U promptinit; promptinit
@@ -281,10 +279,14 @@ unset __conda_setup
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
+# PATH Configs
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH" 
+
+# Aliases 
 alias yd=youtube-dl
 alias py=python
+alias lg=lazygit
+eval $(thefuck --alias)
