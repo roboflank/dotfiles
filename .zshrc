@@ -82,7 +82,7 @@ antigen bundle node
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen bundle unixorn/docker-helpers.zshplugin
-antigen bundle wuotr/zsh-plugin-vscode
+#antigen bundle wuotr/zsh-plugin-vscode
 antigen bundle psprint/history-search-multi-word
 antigen bundle zsh-users/zsh-history-substring-search
 # antigen bundle gko/ssh-connect
