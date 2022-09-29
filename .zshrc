@@ -83,7 +83,10 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen bundle unixorn/docker-helpers.zshplugin
 #antigen bundle wuotr/zsh-plugin-vscode
-antigen bundle psprint/history-search-multi-word
+
+#antigen bundle zdharma-continuum/history-search-multi-word
+#antigen bundle psprint/history-search-multi-word
+#antigen bundle marlonrichert/zsh-autocomplete@main
 antigen bundle zsh-users/zsh-history-substring-search
 # antigen bundle gko/ssh-connect
 # antigen bundle tomsquest/nvm-auto-use.zsh
@@ -92,6 +95,7 @@ antigen bundle supercrabtree/k
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle sobolevn/wakatime-zsh-plugin
 antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
+antigen bundle zdharma-continuum/fast-syntax-highlighting
 
 #autoload -U promptinit; promptinit
 #autoload -U promptinit; promptinit
@@ -131,9 +135,9 @@ SPACESHIP_PROMPT_DEFAULT_SUFFIX=" "
 
 # TIME
 SPACESHIP_TIME_SHOW=true
-SPACESHIP_TIME_PREFIX="⌛️  "
+SPACESHIP_TIME_PREFIX="⌛️ "
 SPACESHIP_TIME_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
-SPACESHIP_TIME_FORMAT=false
+#SPACESHIP_TIME_FORMAT=false
 SPACESHIP_TIME_12HR=false
 SPACESHIP_TIME_COLOR="yellow"
 
@@ -235,11 +239,11 @@ SPACESHIP_VENV_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_VENV_COLOR="blue"
 
 # PYENV
-SPACESHIP_PYENV_SHOW=true
-SPACESHIP_PYENV_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
-SPACESHIP_PYENV_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
-SPACESHIP_PYENV_SYMBOL="🐍  "
-SPACESHIP_PYENV_COLOR="yellow"
+SPACESHIP_PYTHON_SHOW=true
+SPACESHIP_PYTHON_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
+SPACESHIP_PYTHON_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_PYTHON_SYMBOL="🐍  "
+SPACESHIP_PYTHON_COLOR="yellow"
 
 # VI_MODE
 SPACESHIP_VI_MODE_SHOW=true
@@ -262,14 +266,14 @@ export DOCKERHOST=$(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 1
 #MiniConda
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jarvis/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/jarvis/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/jarvis/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/jarvis/miniconda3/bin:$PATH"
+        export PATH="$HOME/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -290,3 +294,10 @@ alias yd=youtube-dl
 alias py=python
 alias lg=lazygit
 eval $(thefuck --alias)
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
