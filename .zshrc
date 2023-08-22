@@ -2,64 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-#export ZSH="~/.oh-my-zsh"
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="honukai"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-#ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-# export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:~/usr/tools:/home/wamburu/Documents/android-sdk-linux/platform-tools:/home/wamburu/Documents/android-sdk-linux/tools:/home/wamburu/Documents/android-sdk-linux/platform-tools:/usr/local/gcc-arm-none-eabi-6-2017-q1-update/bin:~/androidtools/"
-# export ANDROID_HOME=~/androidtools
-#export PATH="~/androidtools/"
-#export ANDROID_HOME=/Users/wamburu/androidtools
-# export ANDROID_HOME=~/androidtools
-#export PATH="~/miniconda3/bin:$PATH" 
-export PATH=$PATH:/usr/local/sbin
-export tGPG_TTY=$(tty)
-
+export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# source $HOME/antigen.zsh
+export HOMEBREW_PREFIX="$(brew --prefix)"
+source $HOMEBREW_PREFIX/share/antigen/antigen.zsh
 
-#Antigen  Paths
-#source ~/.antigen/antigen.zsh
-source $HOME/antigen.zsh
-
-#Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
 antigen bundle rsync
 antigen bundle heroku
@@ -72,36 +21,25 @@ antigen bundle httpie
 antigen bundle tmux
 antigen bundle npm
 antigen bundle node
-#antigen bundle osx
-# # Third Party
-#antigen bundle kennethreitz/autoenv
+antigen bundle macos
 
 
-
-# # Syntax highlighting bundle.
+# Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
-# antigen bundle unixorn/docker-helpers.zshplugin
-#antigen bundle wuotr/zsh-plugin-vscode
-
-#antigen bundle zdharma-continuum/history-search-multi-word
-#antigen bundle psprint/history-search-multi-word
-#antigen bundle marlonrichert/zsh-autocomplete@main
-antigen bundle zsh-users/zsh-history-substring-search
-# antigen bundle gko/ssh-connect
-# antigen bundle tomsquest/nvm-auto-use.zsh
 antigen bundle supercrabtree/k
-# antigen bundle felixr/docker-zsh-completion
 antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle sobolevn/wakatime-zsh-plugin
-antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 antigen bundle zdharma-continuum/fast-syntax-highlighting
 
-#autoload -U promptinit; promptinit
-#autoload -U promptinit; promptinit
-#optionally define some options
-#PURE_CMD_MAX_EXEC_TIME=10
-#prompt pure
+antigen bundle sobolevn/wakatime-zsh-plugin
+antigen theme https://github.com/spaceship-prompt/spaceship-prompt spaceship
+
+
+plugins=(
+	poetry
+	)
+
+# Spaceship Configs 
 # ORDER
 SPACESHIP_PROMPT_ORDER=(
   user
@@ -117,10 +55,8 @@ SPACESHIP_PROMPT_ORDER=(
   conda
   time
   venv
-  pyenv
   battery
   line_sep
-  vi_mode
   char
 )
 
@@ -257,47 +193,54 @@ SPACESHIP_VI_MODE_COLOR="white"
 SPACESHIP_BATTERY_SHOW=true
 SPACESHIP_BATTERY_PREFIX='🔋'
 SPACESHIP_BATTERY_THRESHOLD=30
+
+# others
+SPACESHIP_GCLOUD_SHOW=true
+SPACESHIP_CONDA_SHOW=true
+SPACESHIP_HOST_SHOW="always"
+
 antigen apply
-# The next line updates PATH for the Google Cloud SDK.
-export PATH=$PATH:$HOME/.git-semantic-commits:$PATH
-export DOCKERHOST=$(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | awk '{ print $2 }' | cut -f2 -d: | head -n1)
-# Set Spaceship ZSH as a prompt
-#autoload -U promptinit; promptinit
-#MiniConda
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+
+
+# source /usr/local/opt/spaceship/spaceship.zsh
+
+eval "$(atuin init zsh --disable-up-arrow)"
+
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$PATH:/Users/flanker/.local/bin"
+
+# Conda
+__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
     else
-        export PATH="$HOME/miniconda3/bin:$PATH"
+        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
 
-#prompt spaceship
+# NVM
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# PATH Configs
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="$HOME/.poetry/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH" 
+export PATH=$PATH:$HOME/.spicetify
 
 # Aliases 
-alias yd=youtube-dl
 alias py=python
 alias lg=lazygit
-eval $(thefuck --alias)
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+alias ya="yt-dlp -f 140"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
+# pnpm
+export PNPM_HOME="/Users/flanker/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+#
+eval "$(direnv hook zsh)"
 
-# The next line enables shell command completion for gcloud.
-if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
