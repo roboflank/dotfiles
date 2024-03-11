@@ -207,20 +207,6 @@ antigen apply
 eval "$(atuin init zsh --disable-up-arrow)"
 
 export PATH="/usr/local/sbin:$PATH"
-export PATH="$PATH:/Users/flanker/.local/bin"
-
-# Conda
-__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
-    fi
-fi
-unset __conda_setup
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -228,11 +214,6 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 export PATH=$PATH:$HOME/.spicetify
-
-# Aliases 
-alias py=python
-alias lg=lazygit
-alias ya="yt-dlp -f 140"
 
 # pnpm
 export PNPM_HOME="/Users/flanker/Library/pnpm"
@@ -244,3 +225,43 @@ esac
 #
 eval "$(direnv hook zsh)"
 
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Created by `pipx` on 2023-12-19 21:03:12
+export PATH="$PATH:/Users/roboflank/.local/bin"
+
+# Load Git SSH keys for diffferent account
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+ssh-add --apple-use-keychain ~/.ssh/mantle_labs
+
+#Switch node env in presence of .nvmrc
+autoload -U add-zsh-hook
+
+load-nvmrc() {
+  local nvmrc_path
+  nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version
+    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use
+    fi
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
+# Aliases 
+alias py=python
+alias lg=lazygit
+alias ya="yt-dlp -f 140"
